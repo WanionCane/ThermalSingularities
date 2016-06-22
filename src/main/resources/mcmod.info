@@ -1,0 +1,15 @@
+[
+{
+  "modid": "thermsingul",
+  "name": "Thermal Singularities",
+  "description": "bringing Thermal Singularities to Avaritia!",
+  "version": "1.1",
+  "mcversion": "${mcversion}",
+  "url": "http://minecraft.curseforge.com/projects/thermal-singularities",
+  "updateUrl": "",
+  "authorList": ["WanionCane"],
+  "logoFile": "ThermalSingularitiesLogo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
