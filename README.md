@@ -1,2 +1,2 @@
-# Thermal-Singularities
+# Thermal Singularities
 bringing Thermal Singularities to Avaritia!
