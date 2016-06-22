@@ -2,7 +2,6 @@ package wanion.thermsingul.proxy;
 
 import com.google.common.collect.ImmutableSet;
 import cpw.mods.fml.common.registry.GameRegistry;
-import fox.spiteful.avaritia.Config;
 import fox.spiteful.avaritia.crafting.CompressorManager;
 import fox.spiteful.avaritia.crafting.Grinder;
 import net.minecraft.item.ItemStack;
@@ -10,10 +9,9 @@ import net.minecraftforge.common.config.Configuration;
 import wanion.thermsingul.ThermalSingularityItem;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
+import static fox.spiteful.avaritia.Config.craftingOnly;
 import static java.io.File.separatorChar;
 
 public class CommonProxy
@@ -40,17 +38,17 @@ public class CommonProxy
 
     public final void postInit()
     {
-        if (!Config.craftingOnly)
+        if (!craftingOnly)
             addToRecipeInput();
     }
 
     private void addToRecipeInput()
     {
-        final List<String> oreNameList = Arrays.asList("blockPlatinum", "blockMithril", "blockSignalum", "blockLumium", "blockEnderium");
+        final String[] oreNames = new String[]{"blockPlatinum", "blockMithril", "blockSignalum", "blockLumium", "blockEnderium"};
         int i = 0;
         for (final String singularityType : ThermalSingularityItem.thermTypes) {
             if (allowed.contains(singularityType)) {
-                CompressorManager.addOreRecipe(new ItemStack(ThermalSingularityItem.instance, 1, i), ThermalSingularityItem.recipeValues[i], oreNameList.get(i));
+                CompressorManager.addOreRecipe(new ItemStack(ThermalSingularityItem.instance, 1, i), ThermalSingularityItem.recipeValues[i], oreNames[i]);
                 Grinder.catalyst.getInput().add(new ItemStack(ThermalSingularityItem.instance, 1, i));
             }
             i++;
